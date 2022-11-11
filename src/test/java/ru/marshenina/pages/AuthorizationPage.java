@@ -17,6 +17,11 @@ public class AuthorizationPage {
                             submitButton = $(byText("Продолжить")),
                             passwordInput = $(By.name("passwordSingIn")),
                             inputEmailError = $(".input-hyandai_error__3Fm3m");
+    private final String  AUTH_FORM_TITLE = "Авторизация",
+                        REGISTRATION_FORM_TITLE = "Регистрация",
+                        PASSWORD_RECOVERY_FORM_TITLE = "Восстановление пароля",
+                        INVALID_EMAIL_ERROR_TEXT = "Недопустимый формат email",
+            NOT_REGISTERED_EMAIL_ERROR_TEXT = "Введенный email не найден. Проверьте корректность или пройдите регистрацию";
 
     public void openAuthPage() {
         open("https://id.hyundai.ru/auth/signIn");
@@ -49,11 +54,11 @@ public class AuthorizationPage {
     }
 
     public void checkInvalidEmailError() {
-        inputEmailError.shouldHave(text(String.valueOf(InputErrors.INVALID_EMAIL_ERROR_TEXT)));
+        inputEmailError.shouldHave(text(INVALID_EMAIL_ERROR_TEXT));
     }
 
     public void checkNotRegisteredEmailError() {
-        inputEmailError.shouldHave(text(String.valueOf(InputErrors.NOT_REGISTERED_EMAIL_ERROR_TEXT)));
+        inputEmailError.shouldHave(text(NOT_REGISTERED_EMAIL_ERROR_TEXT));
     }
 
     public void openRegistrationPage() {
@@ -65,14 +70,14 @@ public class AuthorizationPage {
     }
 
     public void checkRegistrationFormTitle() {
-        formTitle.shouldHave(text(String.valueOf(PageTitles.REGISTRATION_FORM_TITLE)));
+        formTitle.shouldHave(text(REGISTRATION_FORM_TITLE));
     }
 
     public void checkPasswordRecoveryTitle() {
-        formTitle.shouldHave(text(String.valueOf(PageTitles.PASSWORD_RECOVERY_FORM_TITLE)));
+        formTitle.shouldHave(text(PASSWORD_RECOVERY_FORM_TITLE));
     }
 
     public void checkAuthFormTitle() {
-        formTitle.shouldHave(text(String.valueOf(PageTitles.AUTH_FORM_TITLE)));
+        formTitle.shouldHave(text(AUTH_FORM_TITLE));
     }
 }
