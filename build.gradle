@@ -52,21 +52,27 @@ tasks.withType(Test) {
         }
     }
 }
-
-task properties_test(type: Test) {
+task positive_test0(type: Test) {
     useJUnitPlatform {
-        includeTags "allInputs"
+        includeTags "Authorization"
     }
 }
 
-task properties_test1(type: Test) {
+task positive_test(type: Test) {
     useJUnitPlatform {
-        includeTags "allInputsWithSteps"
+        includeTags "Positive"
     }
 }
 
-    task properties_test2(type: Test) {
+task negative_test(type: Test) {
+    useJUnitPlatform {
+        includeTags "Negative"
+    }
+}
+
+    task all_test(type: Test) {
         useJUnitPlatform {
-            includeTags "withoutNotRequiredInputs"
+            includeTags "Positive"
+            includeTags "Negative"
         }
     }

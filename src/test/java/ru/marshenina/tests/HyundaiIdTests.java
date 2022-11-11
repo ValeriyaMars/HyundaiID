@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.EnumSource;
 import ru.marshenina.pages.AuthorizationPage;
 import ru.marshenina.pages.MainPage;
 import ru.marshenina.pages.PersonalDataPage;
@@ -25,6 +24,8 @@ public class HyundaiIdTests extends TestBase {
     public String firstName = faker.address().firstName();
     public String lastName = faker.address().lastName();
 
+    @Tag("Positive")
+    @Tag("Authorization")
     @DisplayName("Authorization By email")
     @Test
     void loginByValidEmailTest() {
@@ -54,6 +55,7 @@ public class HyundaiIdTests extends TestBase {
         });
     }
 
+    @Tag("Positive")
     @DisplayName("Check authorization form title")
     @Test
     void checkAuthTitle() {
@@ -66,6 +68,7 @@ public class HyundaiIdTests extends TestBase {
         });
     }
 
+    @Tag("Positive")
     @DisplayName("Open registration page")
     @Test
     void openRegistrationPage() {
@@ -82,6 +85,7 @@ public class HyundaiIdTests extends TestBase {
         });
     }
 
+    @Tag("Positive")
     @DisplayName("Open password recovery page")
     @Test
     void openPasswordRecoveryPage() {
@@ -111,7 +115,7 @@ public class HyundaiIdTests extends TestBase {
 
     @DisplayName("Authorization by email: not registered email")
     @Test
-    @Tag("Негативный кейс")
+    @Tag("Negative")
     void loginNotRegisteredEmailTest() {
         step("Открыть страницу авторизации ", () -> {
             authorizationPage.openAuthPage();
@@ -148,7 +152,7 @@ public class HyundaiIdTests extends TestBase {
          "no symbols after '@', @mail.ru",
     })
     @ParameterizedTest(name = "Check errors for authorization by Email : {0}")
-    @Tag("Негативный кейс")
+    @Tag("Negative")
     void checkErrorAuthByEmailTest(String invalidEmail) {
         step("Открыть страницу авторизации ", () -> {
             authorizationPage.openAuthPage();
@@ -167,7 +171,7 @@ public class HyundaiIdTests extends TestBase {
         });
     }
 
-
+    @Tag("Positive")
     @DisplayName("Personal data: change name")
     @Test
     void changeNameTest() {
@@ -188,6 +192,7 @@ public class HyundaiIdTests extends TestBase {
         });
     }
 
+    @Tag("Positive")
     @DisplayName("Personal data: change lastname")
     @Test
     void changLastNameTest() {
@@ -208,6 +213,7 @@ public class HyundaiIdTests extends TestBase {
         });
     }
 
+    @Tag("Positive")
     @DisplayName("Personal data: change birthdate")
     @Test
     void changeDateOfBirth() {
@@ -228,6 +234,7 @@ public class HyundaiIdTests extends TestBase {
         });
     }
 
+    @Tag("Positive")
     @DisplayName("Personal data: change city")
     @Test
     void changeCityTest() {
@@ -248,6 +255,7 @@ public class HyundaiIdTests extends TestBase {
         });
     }
 
+    @Tag("Positive")
     @DisplayName("Personal data: change address")
     @Test
     void changeAddressTest() {
