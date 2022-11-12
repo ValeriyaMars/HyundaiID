@@ -1,13 +1,16 @@
 package ru.marshenina.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import org.aeonbits.owner.ConfigFactory;
+import ru.marshenina.config.CredentialsConfig;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
-import static ru.marshenina.tests.TestData.authEmailHid;
-import static ru.marshenina.tests.TestData.authPasswordHid;
 
 public class MainPage {
+
+    public CredentialsConfig credentials =
+            ConfigFactory.create(CredentialsConfig.class);
 
     AuthorizationPage authorizationPage = new AuthorizationPage();
     private SelenideElement mainPageTitle = $(".baner_baner__3I8IU");
@@ -16,9 +19,9 @@ public class MainPage {
     public void loginByEmail(){
         authorizationPage.openAuthPage();
         authorizationPage.setEmailAuth();
-        authorizationPage.typeValidEmail(authEmailHid);
+        authorizationPage.typeValidEmail(credentials.hidEmailLogin());
         authorizationPage.clickSubmit();
-        authorizationPage.typePassword(authPasswordHid);
+        authorizationPage.typePassword(credentials.hidPassword());
         authorizationPage.clickSubmit();
     }
 
