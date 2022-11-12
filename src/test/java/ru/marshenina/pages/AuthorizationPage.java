@@ -7,9 +7,9 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static java.lang.String.format;
 
 public class AuthorizationPage {
-
 
     private SelenideElement formTitle = $(".text-center"),
                             emailAuth = $("#email"),
@@ -24,7 +24,10 @@ public class AuthorizationPage {
             NOT_REGISTERED_EMAIL_ERROR_TEXT = "Введенный email не найден. Проверьте корректность или пройдите регистрацию";
 
     public void openAuthPage() {
-        open("https://id.hyundai.ru/auth/signIn");
+        System.setProperty("standUrl","https://id.hyundai.ru");
+        String stand = System.getProperty("standUrl");
+        String sourceUrl = format("%s/auth/signIn", stand);
+        open(sourceUrl);
     }
 
     public void setEmailAuth() {
