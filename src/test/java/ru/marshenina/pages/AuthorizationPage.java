@@ -24,10 +24,7 @@ public class AuthorizationPage {
             NOT_REGISTERED_EMAIL_ERROR_TEXT = "Введенный email не найден. Проверьте корректность или пройдите регистрацию";
 
     public void openAuthPage() {
-        System.setProperty("standUrl","https://id.hyundai.ru");
-        String stand = System.getProperty("standUrl");
-        String sourceUrl = format("%s/auth/signIn", stand);
-        open(sourceUrl);
+        open("https://id.hyundai.ru/auth/signIn");
     }
 
     public void setEmailAuth() {

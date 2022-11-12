@@ -1,11 +1,13 @@
 package ru.marshenina.tests;
 
 import com.github.javafaker.Faker;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import ru.marshenina.config.CredentialsConfig;
 import ru.marshenina.pages.AuthorizationPage;
 import ru.marshenina.pages.MainPage;
 import ru.marshenina.pages.PersonalDataPage;
@@ -15,14 +17,19 @@ import static ru.marshenina.tests.TestData.*;
 
 public class HyundaiIdTests extends TestBase {
 
+    public CredentialsConfig credentials =
+            ConfigFactory.create(CredentialsConfig.class);
+
     AuthorizationPage authorizationPage = new AuthorizationPage();
     MainPage mainPage = new MainPage();
     PersonalDataPage personalDataPage = new PersonalDataPage();
     Faker faker = new Faker();
-
+    String hidEmailLogin = credentials.hidEmailLogin();
+    String hidPassword = credentials.hidPassword();
     public String notRegisteredEmail = faker.internet().emailAddress();
     public String firstName = faker.address().firstName();
     public String lastName = faker.address().lastName();
+
 
     @Tag("Positive")
     @Tag("Authorization")
@@ -38,13 +45,13 @@ public class HyundaiIdTests extends TestBase {
         });
 
         step("Ввести email", () -> {
-            authorizationPage.typeValidEmail(authEmailHid);
+            authorizationPage.typeValidEmail(hidEmailLogin);
         });
         step("Нажать на кнопку 'Продолжить'", () -> {
             authorizationPage.clickSubmit();
         });
         step("Ввести пароль", () -> {
-            authorizationPage.typePassword(authPasswordHid);
+            authorizationPage.typePassword(hidPassword);
         });
         step("Нажать на кнопку 'Продолжить'", () -> {
             authorizationPage.clickSubmit();
@@ -98,7 +105,7 @@ public class HyundaiIdTests extends TestBase {
         });
 
         step("Ввести email", () -> {
-            authorizationPage.typeValidEmail(authEmailHid);
+            authorizationPage.typeValidEmail(hidEmailLogin);
         });
         step("Нажать на кнопку 'Продолжить'", () -> {
             authorizationPage.clickSubmit();
@@ -132,7 +139,7 @@ public class HyundaiIdTests extends TestBase {
             authorizationPage.clickSubmit();
         });
         step("Ввести пароль", () -> {
-            authorizationPage.typePassword(authPasswordHid);
+            authorizationPage.typePassword(hidPassword);
         });
         step("Нажать на кнопку 'Продолжить'", () -> {
             authorizationPage.clickSubmit();
