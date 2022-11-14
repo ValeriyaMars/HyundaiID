@@ -1,6 +1,8 @@
 package ru.marshenina.tests;
 
 import com.github.javafaker.Faker;
+import io.qameta.allure.AllureId;
+import io.qameta.allure.Feature;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -32,9 +34,10 @@ public class HyundaiIdTests extends TestBase {
 
 
     @Tag("Positive")
-    @Tag("Authorization")
-    @DisplayName("Authorization By email")
+    @Feature("Authorization")
+    @DisplayName("Successful login by email")
     @Test
+    @AllureId("12834")
     void loginByValidEmailTest() {
         step("Открыть страницу авторизации ", () -> {
             authorizationPage.openAuthPage();
@@ -62,9 +65,11 @@ public class HyundaiIdTests extends TestBase {
         });
     }
 
+    @Feature("Authorization")
     @Tag("Positive")
     @DisplayName("Check authorization form title")
     @Test
+    @AllureId("12866")
     void checkAuthTitle() {
         step("Открыть страницу авторизации ", () -> {
             authorizationPage.openAuthPage();
@@ -75,9 +80,11 @@ public class HyundaiIdTests extends TestBase {
         });
     }
 
+    @Feature("Registration")
     @Tag("Positive")
     @DisplayName("Open registration page")
     @Test
+    @AllureId("12844")
     void openRegistrationPage() {
         step("Открыть страницу авторизации ", () -> {
             authorizationPage.openAuthPage();
@@ -120,9 +127,11 @@ public class HyundaiIdTests extends TestBase {
         });
     }
 
+    @Feature("Authorization")
+    @Tag("Negative")
     @DisplayName("Authorization by email: not registered email")
     @Test
-    @Tag("Negative")
+    @AllureId("12837")
     void loginNotRegisteredEmailTest() {
         step("Открыть страницу авторизации ", () -> {
             authorizationPage.openAuthPage();
@@ -150,17 +159,19 @@ public class HyundaiIdTests extends TestBase {
         });
     }
 
+    @Feature("Authorization")
     @CsvSource({
-         "no domain name, test@mail",
-         "without symbol '.', test@mailru",
-         "without symbol '@', testmail.ru",
-         "more than 31 symbols before '@', testtesttesttesttesttesttesttest@mail.ru",
-         "no symbols before '@', @mail.ru",
-         "no symbols after '@', @mail.ru",
+         "test@mail, no domain name",
+         "test@mailru, without symbol '.'",
+         "testmail.ru, without symbol '@'",
+         "testtesttesttesttesttesttesttest@mail.ru, more than 31 symbols before '@'",
+         "@mail.ru, no symbols before '@'",
+         "testmail@, no symbols after '@'",
     })
-    @ParameterizedTest(name = "Check errors for authorization by Email : {0}")
+    @ParameterizedTest(name = "Check errors for authorization by Email : {1}")
+    @AllureId("12836")
     @Tag("Negative")
-    void checkErrorAuthByEmailTest(String invalidEmail) {
+    void checkErrorAuthByEmailTest(String invalidEmail, String name) {
         step("Открыть страницу авторизации ", () -> {
             authorizationPage.openAuthPage();
         });
@@ -178,9 +189,11 @@ public class HyundaiIdTests extends TestBase {
         });
     }
 
+    @Feature("Personal data page")
     @Tag("Positive")
     @DisplayName("Personal data: change name")
     @Test
+    @AllureId("12847")
     void changeNameTest() {
         step("Пройти авторизацию по email", () -> {
             mainPage.loginByEmail();
@@ -199,9 +212,11 @@ public class HyundaiIdTests extends TestBase {
         });
     }
 
+    @Feature("Personal data page")
     @Tag("Positive")
     @DisplayName("Personal data: change lastname")
     @Test
+    @AllureId("12848")
     void changLastNameTest() {
         step("Пройти авторизацию по email", () -> {
             mainPage.loginByEmail();
@@ -220,9 +235,11 @@ public class HyundaiIdTests extends TestBase {
         });
     }
 
+    @Feature("Personal data page")
     @Tag("Positive")
     @DisplayName("Personal data: change birthdate")
     @Test
+    @AllureId("12849")
     void changeDateOfBirth() {
         step("Пройти авторизацию по email", () -> {
             mainPage.loginByEmail();
@@ -241,9 +258,11 @@ public class HyundaiIdTests extends TestBase {
         });
     }
 
+    @Feature("Personal data page")
     @Tag("Positive")
     @DisplayName("Personal data: change city")
     @Test
+    @AllureId("12851")
     void changeCityTest() {
         step("Пройти авторизацию по email", () -> {
             mainPage.loginByEmail();
@@ -262,9 +281,11 @@ public class HyundaiIdTests extends TestBase {
         });
     }
 
+    @Feature("Personal data page")
     @Tag("Positive")
     @DisplayName("Personal data: change address")
     @Test
+    @AllureId("12854")
     void changeAddressTest() {
         step("Пройти авторизацию по email", () -> {
             mainPage.loginByEmail();
