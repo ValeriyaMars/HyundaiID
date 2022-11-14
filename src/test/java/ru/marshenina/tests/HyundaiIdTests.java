@@ -39,7 +39,7 @@ public class HyundaiIdTests extends TestBase {
     @Test
     @AllureId("12834")
     void loginByValidEmailTest() {
-        step("Открыть страницу авторизации ", () -> {
+        step("Открыть страницу авторизации", () -> {
             authorizationPage.openAuthPage();
         });
 
