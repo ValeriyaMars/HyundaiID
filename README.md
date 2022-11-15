@@ -37,8 +37,6 @@ Each launch displays it's details in Allure TMS in live regime
 Manual and automatic test cases
 ![Tests video](https://github.com/ValeriyaMars/hyundaiID/blob/master/src/test/resources/img/Screenshot_22.png)
 
-## **Jira integration** <img src="https://github.com/ValeriyaMars/hyundaiID/blob/master/src/test/resources/img/jira-3.svg" width="30" height="30">
-Tests and runs could be integrated with Jira and attached to specific task
 ## **Telegram report** <img src="https://github.com/ValeriyaMars/hyundaiID/blob/master/src/test/resources/img/Telegram.svg" width="30" height="30">
 Receiving a report on the tests performed in telegram
 
