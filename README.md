@@ -40,4 +40,4 @@ Manual and automatic test cases
 ## **Telegram report** <img src="https://github.com/ValeriyaMars/hyundaiID/blob/master/src/test/resources/img/Telegram.svg" width="30" height="30">
 Receiving a report on the tests performed in telegram
 
-![Telegram Bot](https://github.com/ValeriyaMars/hyundaiID/blob/master/src/test/resources/img/Telegram_bot.png)
+![Telegram Bot](https://github.com/ValeriyaMars/hyundaiID/blob/master/src/test/resources/img/telegram_bot.png)
