@@ -16,7 +16,7 @@ You can run tests by configuring the following parameters:
 - BROWSER_VERSION (default 106.0)
 - BROWSER_SIZE (default 1366x768)
 
-![Jenkins](https://github.com/ValeriyaMars/hyundaiID/blob/master/src/test/resources/img/Jenkins_job.png)
+![Jenkins](https://github.com/ValeriyaMars/hyundaiID/blob/master/src/test/resources/img/jenkins_job.png)
 
 ## **To run tests locally with files app.properties and local.properties:**
 ![Command](https://github.com/ValeriyaMars/hyundaiID/blob/master/src/test/resources/img/Command%20all_test.png)
