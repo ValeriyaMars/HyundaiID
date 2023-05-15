@@ -60,7 +60,7 @@ tasks.withType(Test) {
         }
     }
 }
-task positive_test0(type: Test) {
+task positive_test_auth(type: Test) {
     useJUnitPlatform {
         includeTags "Authorization"
     }
