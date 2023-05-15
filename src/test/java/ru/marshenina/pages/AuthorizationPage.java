@@ -1,30 +1,37 @@
 package ru.marshenina.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static java.lang.String.format;
 
 public class AuthorizationPage {
 
+    Faker faker = new Faker();
+
+    public String hidEmailLogin = "lerun_m@mail.ru",
+            hidPassword = "12345678",
+            notRegisteredEmail = faker.internet().emailAddress();
+    ;
+
     private SelenideElement formTitle = $(".text-center"),
-                            emailAuth = $("#email"),
-                            emailInput = $(By.name("email")),
-                            submitButton = $(byText("Продолжить")),
-                            passwordInput = $(By.name("passwordSingIn")),
-                            inputEmailError = $(".input-hyandai_error__3Fm3m");
-    private final String  AUTH_FORM_TITLE = "Авторизация",
-                        REGISTRATION_FORM_TITLE = "Регистрация",
-                        PASSWORD_RECOVERY_FORM_TITLE = "Восстановление пароля",
-                        INVALID_EMAIL_ERROR_TEXT = "Недопустимый формат email",
+            emailAuth = $("#email"),
+            emailInput = $(By.name("email")),
+            submitButton = $(byText("Продолжить")),
+            passwordInput = $(By.name("passwordSingIn")),
+            inputEmailError = $(".input-hyandai_error__3Fm3m");
+    private final String AUTH_FORM_TITLE = "Авторизация",
+            REGISTRATION_FORM_TITLE = "Регистрация",
+            PASSWORD_RECOVERY_FORM_TITLE = "Восстановление пароля",
+            INVALID_EMAIL_ERROR_TEXT = "Недопустимый формат email",
             NOT_REGISTERED_EMAIL_ERROR_TEXT = "Введенный email не найден. Проверьте корректность или пройдите регистрацию";
 
     public void openAuthPage() {
-        open("https://id.hyundai.ru/auth/signIn");
+        open("/auth/signIn");
     }
 
     public void setEmailAuth() {
