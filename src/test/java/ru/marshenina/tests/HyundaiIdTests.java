@@ -1,37 +1,33 @@
 package ru.marshenina.tests;
 
-import com.github.javafaker.Faker;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Feature;
-import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import ru.marshenina.config.CredentialsConfig;
 import ru.marshenina.pages.AuthorizationPage;
 import ru.marshenina.pages.MainPage;
 import ru.marshenina.pages.PersonalDataPage;
 
 import static io.qameta.allure.Allure.step;
-import static ru.marshenina.tests.TestData.*;
+import static ru.marshenina.utils.RandomData.*;
 
 public class HyundaiIdTests extends TestBase {
-
-    public CredentialsConfig credentials =
-            ConfigFactory.create(CredentialsConfig.class);
 
     AuthorizationPage authorizationPage = new AuthorizationPage();
     MainPage mainPage = new MainPage();
     PersonalDataPage personalDataPage = new PersonalDataPage();
-    Faker faker = new Faker();
-    String hidEmailLogin = credentials.hidEmailLogin();
-    String hidPassword = credentials.hidPassword();
-    public String notRegisteredEmail = faker.internet().emailAddress();
-    public String firstName = faker.address().firstName();
-    public String lastName = faker.address().lastName();
 
+    public String firstName = getRandomFirstName(),
+            lastName = getRandomLastName(),
+            userBirthMonth = getRandomBirthMonth(),
+            userBirthYear = getRandomBirthYear(),
+            userBirthDay = getRandomBirthDay(),
+            defaultCity = "Москва",
+            city = "Сызрань",
+            address = "Советская, д 69";
 
     @Tag("Positive")
     @Feature("Authorization")
@@ -48,13 +44,13 @@ public class HyundaiIdTests extends TestBase {
         });
 
         step("Ввести email", () -> {
-            authorizationPage.typeValidEmail(hidEmailLogin);
+            authorizationPage.typeValidEmail(authorizationPage.hidEmailLogin);
         });
         step("Нажать на кнопку 'Продолжить'", () -> {
             authorizationPage.clickSubmit();
         });
         step("Ввести пароль", () -> {
-            authorizationPage.typePassword(hidPassword);
+            authorizationPage.typePassword(authorizationPage.hidPassword);
         });
         step("Нажать на кнопку 'Продолжить'", () -> {
             authorizationPage.clickSubmit();
@@ -112,7 +108,7 @@ public class HyundaiIdTests extends TestBase {
         });
 
         step("Ввести email", () -> {
-            authorizationPage.typeValidEmail(hidEmailLogin);
+            authorizationPage.typeValidEmail(authorizationPage.hidEmailLogin);
         });
         step("Нажать на кнопку 'Продолжить'", () -> {
             authorizationPage.clickSubmit();
@@ -142,13 +138,13 @@ public class HyundaiIdTests extends TestBase {
         });
 
         step("Ввести незарегистрированный email", () -> {
-            authorizationPage.typeNotRegisteredEmail(notRegisteredEmail);
+            authorizationPage.typeNotRegisteredEmail(authorizationPage.notRegisteredEmail);
         });
         step("Нажать на кнопку 'Продолжить'", () -> {
             authorizationPage.clickSubmit();
         });
         step("Ввести пароль", () -> {
-            authorizationPage.typePassword(hidPassword);
+            authorizationPage.typePassword(authorizationPage.hidPassword);
         });
         step("Нажать на кнопку 'Продолжить'", () -> {
             authorizationPage.clickSubmit();
@@ -161,12 +157,12 @@ public class HyundaiIdTests extends TestBase {
 
     @Feature("Authorization")
     @CsvSource({
-         "test@mail, no domain name",
-         "test@mailru, without symbol '.'",
-         "testmail.ru, without symbol '@'",
-         "testtesttesttesttesttesttesttest@mail.ru, more than 31 symbols before '@'",
-         "@mail.ru, no symbols before '@'",
-         "testmail@, no symbols after '@'",
+            "test@mail, no domain name",
+            "test@mailru, without symbol '.'",
+            "testmail.ru, without symbol '@'",
+            "testtesttesttesttesttesttesttest@mail.ru, more than 31 symbols before '@'",
+            "@mail.ru, no symbols before '@'",
+            "testmail@, no symbols after '@'",
     })
     @ParameterizedTest(name = "Check errors for authorization by Email : {1}")
     @AllureId("12836")
@@ -248,13 +244,13 @@ public class HyundaiIdTests extends TestBase {
             personalDataPage.openTabPersonalData();
         });
         step("Изменить дату рождения", () -> {
-            personalDataPage.changeBirthDate();
+            personalDataPage.changeBirthDate(userBirthMonth, userBirthYear, userBirthDay);
         });
         step("Нажать на кнопку 'Сохранить'", () -> {
             personalDataPage.clickSaveButton();
         });
         step("Проверить, что отображается измененная дата", () -> {
-            personalDataPage.checkBirthDate();
+            personalDataPage.checkBirthDate(userBirthDay, userBirthMonth, userBirthYear);
         });
     }
 
@@ -278,6 +274,12 @@ public class HyundaiIdTests extends TestBase {
         });
         step("Проверить, что отображается выбранный город", () -> {
             personalDataPage.checkCity(city);
+        });
+        step("Вернуть дефолтное значение в поле", () -> {
+            personalDataPage.changeCity(defaultCity);
+        });
+        step("Нажать на кнопку 'Сохранить'", () -> {
+            personalDataPage.clickSaveButton();
         });
     }
 
@@ -307,4 +309,9 @@ public class HyundaiIdTests extends TestBase {
         });
     }
 
+    @Test
+    void test() {
+        System.out.println(userBirthMonth);
+
+    }
 }

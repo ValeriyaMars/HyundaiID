@@ -9,6 +9,8 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.value;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.sleep;
+import static java.lang.Long.valueOf;
 
 public class PersonalDataPage {
 
@@ -45,20 +47,24 @@ public class PersonalDataPage {
         lastnameInput.setValue(value);
     }
 
-    public void changeBirthDate() {
-        calendar.setDate("3", "1989", "18");
+    public PersonalDataPage changeBirthDate(String month, String year, String day) {
+        calendar.setDate(month, year, day);
+        return this;
     }
 
     public void changeCity(String value) {
-        cityInput.click();
         cityInput.sendKeys(deleteString);
         cityInput.setValue(value).pressEnter();
+        sleep(1000); //ожидаем загрузку данных
+        cityInput.pressEnter();
     }
 
     public void changeAddress(String value) {
         addressInput.click();
         addressInput.sendKeys(deleteString);
         addressInput.setValue(value).pressEnter();
+        sleep(1000); //ожидаем загрузку данных
+        addressInput.pressEnter();
     }
 
     public void clickSaveButton() {
@@ -73,15 +79,19 @@ public class PersonalDataPage {
         userNameInTabPersonalData.shouldHave(text(value));
     }
 
-    public void checkBirthDate() {
-        birthDateInput.shouldHave(value("18.04.1989"));
+    public void checkBirthDate(String day, String month, String year) {
+        if (valueOf(month) < 10) {
+            birthDateInput.shouldHave(value(day + ".0" + (valueOf(month) + 1) + "." + year));
+        } else {
+            birthDateInput.shouldHave(value(day + "." + (valueOf(month) + 1) + "." + year));
+        }
     }
 
     public void checkCity(String value) {
         cityInput.shouldHave(value(value));
     }
 
-    public void checkAddress(String city,String address) {
+    public void checkAddress(String city, String address) {
         addressInput.shouldHave(value("Самарская обл, г " + city + ", ул " + address));
     }
 }
