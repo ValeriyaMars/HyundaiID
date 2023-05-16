@@ -17,7 +17,7 @@ public class PersonalDataPage {
     public CalendarComponent calendar = new CalendarComponent();
 
     private SelenideElement tabPersonalData = $(byText("Личные данные")),
-            tabPersonalDataTitle = $(".personal_title__1GXGt"),
+            tabPersonalDataTitle = $(".personal_title__3pjfR"),
             nameInput = $(By.name("name")),
             lastnameInput = $(By.name("lastname")),
             saveButton = $(byText("Сохранить")),
