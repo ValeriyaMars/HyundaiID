@@ -308,10 +308,4 @@ public class HyundaiIdTests extends TestBase {
             personalDataPage.checkAddress(city, address);
         });
     }
-
-    @Test
-    void test() {
-        System.out.println(userBirthMonth);
-
-    }
 }
