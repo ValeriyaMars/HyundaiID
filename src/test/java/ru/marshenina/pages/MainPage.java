@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class MainPage {
 
     AuthorizationPage authorizationPage = new AuthorizationPage();
-    private SelenideElement mainPageTitle = $(".baner_baner__3I8IU");
+    private SelenideElement mainPageTitle = $(".baner_baner__OOrH8");
     private final String MAIN_PAGE_TITLE = "Добро пожаловать в Hyundai ID";
 
     public void loginByEmail() {

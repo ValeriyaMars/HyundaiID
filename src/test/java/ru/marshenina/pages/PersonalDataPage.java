@@ -21,7 +21,7 @@ public class PersonalDataPage {
             nameInput = $(By.name("name")),
             lastnameInput = $(By.name("lastname")),
             saveButton = $(byText("Сохранить")),
-            userNameInTabPersonalData = $(".personal_userName__1FnPj"),
+            userNameInTabPersonalData = $(".personal_userName__Vi92T"),
             birthDateInput = $(By.name("birthdate")),
             cityInput = $("#city"),
             addressInput = $("#address");

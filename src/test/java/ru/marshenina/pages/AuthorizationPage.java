@@ -23,7 +23,7 @@ public class AuthorizationPage {
             emailInput = $(By.name("email")),
             submitButton = $(byText("Продолжить")),
             passwordInput = $(By.name("passwordSingIn")),
-            inputEmailError = $(".input-hyandai_error__3Fm3m");
+            inputEmailError = $(".input-hyandai_error__2U1rg");
     private final String AUTH_FORM_TITLE = "Авторизация",
             REGISTRATION_FORM_TITLE = "Регистрация",
             PASSWORD_RECOVERY_FORM_TITLE = "Восстановление пароля",
