@@ -13,8 +13,8 @@ UI tests for [Hyundai ID](https://id.hyundai.ru/)
 You can run tests by configuring the following parameters:
 
 - BROWSER (default chrome)
-- BROWSER_VERSION (default 106.0)
-- BROWSER_SIZE (default 1366x768)
+- BROWSER_VERSION (default 100.0)
+- BROWSER_SIZE (default 1920x1080)
 
 ![Jenkins](https://github.com/ValeriyaMars/hyundaiID/blob/master/src/test/resources/img/jenkins_job.png)
 
