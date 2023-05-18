@@ -10,6 +10,8 @@ import ru.marshenina.helpers.Attach;
 
 import java.util.Map;
 
+import static java.lang.String.format;
+
 public class TestBase {
     public CredentialsConfig credentials =
             ConfigFactory.create(CredentialsConfig.class);
@@ -23,7 +25,9 @@ public class TestBase {
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("browserVersion", "100.0");
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
-        Configuration.remote = System.getProperty("remoteUrl", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
+
+        String selenoidUrl = System.getProperty("url", "selenoid.autotests.cloud/wd/hub/");
+        String browserUrl = format("https://%s:%s%s", login, password, selenoidUrl);
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
