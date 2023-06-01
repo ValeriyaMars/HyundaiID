@@ -44,13 +44,13 @@ public class HyundaiIdTests extends TestBase {
         });
 
         step("Ввести email", () -> {
-            authorizationPage.typeValidEmail(authorizationPage.hidEmailLogin);
+            authorizationPage.typeValidEmail(authorizationPage.login);
         });
         step("Нажать на кнопку 'Продолжить'", () -> {
             authorizationPage.clickSubmit();
         });
         step("Ввести пароль", () -> {
-            authorizationPage.typePassword(authorizationPage.hidPassword);
+            authorizationPage.typePassword(authorizationPage.password);
         });
         step("Нажать на кнопку 'Продолжить'", () -> {
             authorizationPage.clickSubmit();
@@ -108,7 +108,7 @@ public class HyundaiIdTests extends TestBase {
         });
 
         step("Ввести email", () -> {
-            authorizationPage.typeValidEmail(authorizationPage.hidEmailLogin);
+            authorizationPage.typeValidEmail(authorizationPage.login);
         });
         step("Нажать на кнопку 'Продолжить'", () -> {
             authorizationPage.clickSubmit();
@@ -144,7 +144,7 @@ public class HyundaiIdTests extends TestBase {
             authorizationPage.clickSubmit();
         });
         step("Ввести пароль", () -> {
-            authorizationPage.typePassword(authorizationPage.hidPassword);
+            authorizationPage.typePassword(authorizationPage.password);
         });
         step("Нажать на кнопку 'Продолжить'", () -> {
             authorizationPage.clickSubmit();
