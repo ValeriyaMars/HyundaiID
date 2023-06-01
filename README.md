@@ -28,7 +28,7 @@ You can run tests by configuring the following parameters:
 ### **Test with steps, attached image, video, page source and console logs** ![Tests results](https://github.com/ValeriyaMars/hyundaiID/blob/master/img/Allure_report2.png)
 
 ## **Video** <img src="https://github.com/ValeriyaMars/hyundaiID/blob/master/img/Selenoid.svg" width="30" height="30">
-![Tests video](https://github.com/ValeriyaMars/hyundaiID/blob/master/img/test_video.gif)
+![Tests video](https://github.com/ValeriyaMars/hyundaiID/blob/master/img/61c5c633ebcb501e45fda1f5015c95dc%20(1).gif)
 
 ## **Allure TestOps** <img src="https://github.com/ValeriyaMars/hyundaiID/blob/master/img/AllureTestops.svg" width="30" height="30">
 Each launch displays it's details in Allure TMS in live regime
