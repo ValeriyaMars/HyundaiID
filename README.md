@@ -21,7 +21,7 @@ You can run tests by configuring the following parameters:
 ## **To run tests locally with files app.properties and local.properties:**
 ![Command](https://github.com/ValeriyaMars/hyundaiID/blob/master/img/Command%20all_test.png)
 ### **Running tests with different tags** <img src="https://github.com/ValeriyaMars/hyundaiID/blob/master/img/IDEA.svg" width="30" height="30">
-![Tags](https://github.com/ValeriyaMars/hyundaiID/blob/master/img/Task.png)
+![Tags](https://github.com/ValeriyaMars/hyundaiID/blob/master/img/task.png)
 
 ## **Allure reports** <img src="https://github.com/ValeriyaMars/hyundaiID/blob/master/img/Allure%20Report.svg" width="30" height="30">
 ### **Launch results** ![Launch results](https://github.com/ValeriyaMars/hyundaiID/blob/master/img/Allure_report.png)
