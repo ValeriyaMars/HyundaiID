@@ -24,7 +24,7 @@ You can run tests by configuring the following parameters:
 ![Tags](https://github.com/ValeriyaMars/hyundaiID/blob/master/img/Task.png)
 
 ## **Allure reports** <img src="https://github.com/ValeriyaMars/hyundaiID/blob/master/img/Allure%20Report.svg" width="30" height="30">
-### **Launch results** ![Launch results](https://github.com/ValeriyaMars/hyundaiID/blob/master/img/Allure%20Report.svg)
+### **Launch results** ![Launch results](https://github.com/ValeriyaMars/hyundaiID/blob/master/img/Allure_report.png)
 ### **Test with steps, attached image, video, page source and console logs** ![Tests results](https://github.com/ValeriyaMars/hyundaiID/blob/master/img/Allure_report2.png)
 
 ## **Video** <img src="https://github.com/ValeriyaMars/hyundaiID/blob/master/img/Selenoid.svg" width="30" height="30">
