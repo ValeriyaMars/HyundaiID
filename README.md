@@ -1,4 +1,4 @@
-<img src="https://github.com/ValeriyaMars/hyundaiID/tree/master/imgimg/logo2.917e863e.svg" width="500" height="50">
+<img src="https://github.com/ValeriyaMars/hyundaiID/tree/master/img/logo2.917e863e.svg" width="500" height="50">
 
 ![Screenshot_21](https://github.com/ValeriyaMars/hyundaiID/blob/master/src/test/resources/img/HID.png)
 Hyundai ID web automation project
