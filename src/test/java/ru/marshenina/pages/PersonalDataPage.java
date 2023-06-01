@@ -55,7 +55,7 @@ public class PersonalDataPage {
     public void changeCity(String value) {
         cityInput.sendKeys(deleteString);
         cityInput.setValue(value).pressEnter();
-        Configuration.timeout = 1000; //ожидаем загрузку данных
+        Configuration.timeout = 10000; //ожидаем загрузку данных
         cityInput.pressEnter();
     }
 
@@ -63,7 +63,7 @@ public class PersonalDataPage {
         addressInput.click();
         addressInput.sendKeys(deleteString);
         addressInput.setValue(value).pressEnter();
-        Configuration.timeout = 1000; //ожидаем загрузку данных
+        Configuration.timeout = 10000; //ожидаем загрузку данных
         addressInput.pressEnter();
     }
 

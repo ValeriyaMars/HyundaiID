@@ -36,7 +36,7 @@ dependencies {
             "com.codeborne:selenide:6.7.2",
             "io.qameta.allure:allure-selenide:2.19.0",
             "com.github.javafaker:javafaker:1.0.2",
-            "org.aeonbits.owner:owner:1.0.12",
+            "org.aeonbits.owner:owner:1.0.4",
             "com.github.javafaker:javafaker:1.0.2",
            "org.junit.jupiter:junit-jupiter:5.9.2")
     testRuntimeOnly(
