@@ -2,7 +2,9 @@ package ru.marshenina.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import com.github.javafaker.Faker;
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.By;
+import ru.marshenina.config.CredentialsConfig;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -13,8 +15,11 @@ public class AuthorizationPage {
 
     Faker faker = new Faker();
 
-    public String hidEmailLogin = "lerun_m@mail.ru",
-            hidPassword = "12345678",
+    public CredentialsConfig credentials =
+            ConfigFactory.create(CredentialsConfig.class);
+
+    public String login = credentials.login(),
+            password = credentials.password(),
             notRegisteredEmail = faker.internet().emailAddress();
     ;
 

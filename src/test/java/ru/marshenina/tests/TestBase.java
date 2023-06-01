@@ -6,6 +6,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import ru.marshenina.config.CredentialsConfig;
+import ru.marshenina.config.WebConfig;
 import ru.marshenina.helpers.Attach;
 
 import java.util.Map;
@@ -14,16 +15,21 @@ public class TestBase {
     public CredentialsConfig credentials =
             ConfigFactory.create(CredentialsConfig.class);
 
+    static WebConfig webConfig = ConfigFactory.create(WebConfig.class, System.getProperties());
+
     String login = credentials.login();
     String password = credentials.password();
 
     @BeforeEach
     void setup() {
-        Configuration.baseUrl = System.getProperty("baseUrl", "https://id.hyundai.ru");
-        Configuration.browser = System.getProperty("browser", "chrome");
-        Configuration.browserVersion = System.getProperty("browserVersion", "100.0");
-        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
-        Configuration.remote = System.getProperty("remoteUrl", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
+
+        Configuration.baseUrl = webConfig.getBaseUrl();
+        Configuration.browser = webConfig.getBrowser();
+        Configuration.browserVersion = webConfig.getBrowserVersion();
+        Configuration.browserSize = webConfig.getBrowserSize();
+        if (webConfig.getRemoteUrl() != null){
+            Configuration.remote = webConfig.getRemoteUrl();
+        }
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(

@@ -14,9 +14,9 @@ public class MainPage {
     public void loginByEmail() {
         authorizationPage.openAuthPage();
         authorizationPage.setEmailAuth();
-        authorizationPage.typeValidEmail(authorizationPage.hidEmailLogin);
+        authorizationPage.typeValidEmail(authorizationPage.login);
         authorizationPage.clickSubmit();
-        authorizationPage.typePassword(authorizationPage.hidPassword);
+        authorizationPage.typePassword(authorizationPage.password);
         authorizationPage.clickSubmit();
     }
 

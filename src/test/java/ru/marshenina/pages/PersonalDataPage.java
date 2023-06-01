@@ -1,5 +1,6 @@
 package ru.marshenina.pages;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -9,7 +10,6 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.value;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.sleep;
 import static java.lang.Long.valueOf;
 
 public class PersonalDataPage {
@@ -55,7 +55,7 @@ public class PersonalDataPage {
     public void changeCity(String value) {
         cityInput.sendKeys(deleteString);
         cityInput.setValue(value).pressEnter();
-        sleep(1000); //ожидаем загрузку данных
+        Configuration.timeout = 10000; //ожидаем загрузку данных
         cityInput.pressEnter();
     }
 
@@ -63,7 +63,7 @@ public class PersonalDataPage {
         addressInput.click();
         addressInput.sendKeys(deleteString);
         addressInput.setValue(value).pressEnter();
-        sleep(1000); //ожидаем загрузку данных
+        Configuration.timeout = 10000; //ожидаем загрузку данных
         addressInput.pressEnter();
     }
 
